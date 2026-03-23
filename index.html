@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>活动一 · 幸运转盘 - 小胡鸭</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">小胡鸭给您传递幸运啦~</header>
+
+  <main class="main">
+    <div class="wheel-wrap">
+      <div class="pointer" aria-hidden="true"></div>
+      <canvas id="wheel" width="360" height="360" role="img" aria-label="抽奖转盘"></canvas>
+    </div>
+    <button type="button" id="spinBtn" class="spin-btn">开始抽奖</button>
+  </main>
+
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <div class="overlay-card">
+      <p class="congrats">恭喜您</p>
+      <p id="prizeText" class="prize-text"></p>
+      <p class="hint">下次购买可使用</p>
+      <button type="button" id="closeOverlay" class="close-btn">知道了</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
