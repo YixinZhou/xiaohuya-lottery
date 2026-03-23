@@ -3,26 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>活动一 · 幸运转盘 - 小胡鸭</title>
+  <title>幸运大转盘 - 小胡鸭</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="page-header">小胡鸭给您传递幸运啦~</header>
 
-  <main class="main">
-    <div class="wheel-wrap">
-      <div class="pointer" aria-hidden="true"></div>
-      <canvas id="wheel" width="360" height="360" role="img" aria-label="抽奖转盘"></canvas>
+  <!-- 顶部横幅 -->
+  <header class="hero">
+    <div class="hero-deco hero-deco--left">✦</div>
+    <div class="hero-deco hero-deco--right">✦</div>
+    <div class="hero-badge">🍖 小胡鸭</div>
+    <h1 class="hero-title">幸运大转盘</h1>
+    <p class="hero-sub">好吃又好玩，转出你的专属好礼</p>
+    <div class="hero-dots">
+      <span></span><span></span><span></span>
     </div>
-    <button type="button" id="spinBtn" class="spin-btn">开始抽奖</button>
-  </main>
+  </header>
 
+  <!-- 转盘区域 -->
+  <section class="stage">
+    <div class="stage-glow"></div>
+    <div class="wheel-outer-ring">
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true">
+          <svg viewBox="0 0 36 44" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="18,44 0,0 36,0" fill="url(#ptrGrad)" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="ptrGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6b35"/>
+                <stop offset="100%" stop-color="#e63946"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <canvas id="wheel" width="320" height="320" role="img" aria-label="抽奖转盘"></canvas>
+      </div>
+    </div>
+    <button type="button" id="spinBtn" class="spin-btn">
+      <span>🎯</span> 立即抽奖
+    </button>
+    <p class="spin-hint">每人有一次抽奖机会，转动命运吧！</p>
+  </section>
+
+  <!-- 奖品清单 -->
+  <section class="prizes">
+    <h2 class="prizes-title">
+      <span class="prizes-icon">🎁</span> 奖品一览
+    </h2>
+    <ul class="prizes-list">
+      <li class="prize-item" style="--c:#ff6b6b">
+        <span class="prize-dot"></span>5元无门槛券
+      </li>
+      <li class="prize-item" style="--c:#ffa94d">
+        <span class="prize-dot"></span>香酥整鸭 8.5 折券
+      </li>
+      <li class="prize-item" style="--c:#69db7c">
+        <span class="prize-dot"></span>满100元减25元券
+      </li>
+      <li class="prize-item" style="--c:#74c0fc">
+        <span class="prize-dot"></span>220元礼包半价券
+      </li>
+      <li class="prize-item" style="--c:#da77f2">
+        <span class="prize-dot"></span>150元内免单券
+      </li>
+      <li class="prize-item" style="--c:#adb5bd">
+        <span class="prize-dot"></span>谢谢惠顾（下次再来~）
+      </li>
+    </ul>
+  </section>
+
+  <!-- 底部说明 -->
+  <footer class="rules">
+    <p>🎉 活动有效期至即日起 · 优惠券到店出示即可使用 · 最终解释权归小胡鸭所有</p>
+  </footer>
+
+  <!-- 中奖弹窗 -->
   <div id="overlay" class="overlay hidden" aria-hidden="true">
     <div class="overlay-card">
-      <p class="congrats">恭喜您</p>
+      <div class="overlay-confetti" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="overlay-icon" aria-hidden="true">🎊</div>
+      <p class="congrats">恭喜您抽中</p>
       <p id="prizeText" class="prize-text"></p>
-      <p class="hint">下次购买可使用</p>
-      <button type="button" id="closeOverlay" class="close-btn">知道了</button>
+      <p class="hint">截图保存 / 到店出示即可使用</p>
+      <button type="button" id="closeOverlay" class="close-btn">收下好礼 ✨</button>
     </div>
   </div>
 
